@@ -208,7 +208,7 @@ class LocationAutocompleteFieldState extends State<PlacesAutocompleteField> {
 
     final text = controller.text.isNotEmpty
         ? SizedBox(
-            width: MediaQuery.of(context).size.width * 0.8,
+            width: 200,
             child: Text(
               controller.text,
               maxLines: 1,
@@ -218,12 +218,15 @@ class LocationAutocompleteFieldState extends State<PlacesAutocompleteField> {
                   const TextStyle(color: Colors.black38),
             ),
           )
-        : Text(
-            widget.hint,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 1,
-            style: widget.textStyleFormField ??
-                const TextStyle(color: Colors.black38),
+        : SizedBox(
+            width: 200,
+            child: Text(
+              widget.hint,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: widget.textStyleFormField ??
+                  const TextStyle(color: Colors.black38),
+            ),
           );
 
     Widget child = Row(
