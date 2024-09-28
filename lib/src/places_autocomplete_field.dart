@@ -210,7 +210,6 @@ class LocationAutocompleteFieldState extends State<PlacesAutocompleteField> {
         ? Text(
             controller.text,
             softWrap: true,
-            overflow: TextOverflow.ellipsis,
             style: widget.textStyleFormField ??
                 const TextStyle(color: Colors.black38),
           )
