@@ -35,31 +35,32 @@ class PlacesAutocompleteField extends StatefulWidget {
   /// To remove the decoration entirely (including the extra padding introduced
   /// by the decoration to save space for the labels), set the [decoration] to
   /// null.
-  const PlacesAutocompleteField({
-    Key? key,
-    required this.apiKey,
-    this.controller,
-    this.leading,
-    this.hint = "Search",
-    this.trailing,
-    this.trailingOnTap,
-    this.mode = Mode.fullscreen,
-    this.offset,
-    this.location,
-    this.radius,
-    this.language,
-    this.sessionToken,
-    this.types,
-    this.components,
-    this.strictbounds,
-    this.onChanged,
-    this.onSelected,
-    this.onError,
-    this.inputDecoration = const InputDecoration(),
-    this.overlayBorderRadius,
-    this.textStyle,
-    this.textStyleFormField,
-  }) : super(key: key);
+  const PlacesAutocompleteField(
+      {Key? key,
+      required this.apiKey,
+      this.controller,
+      this.leading,
+      this.hint = "Search",
+      this.trailing,
+      this.trailingOnTap,
+      this.mode = Mode.fullscreen,
+      this.offset,
+      this.location,
+      this.radius,
+      this.language,
+      this.sessionToken,
+      this.types,
+      this.components,
+      this.strictbounds,
+      this.onChanged,
+      this.onSelected,
+      this.onError,
+      this.inputDecoration = const InputDecoration(),
+      this.overlayBorderRadius,
+      this.textStyle,
+      this.textStyleFormField,
+      this.controllerTextStyleFormField})
+      : super(key: key);
 
   /// Controls the text being edited.
   ///
@@ -141,6 +142,7 @@ class PlacesAutocompleteField extends StatefulWidget {
   final TextStyle? textStyle;
 
   final TextStyle? textStyleFormField;
+  final TextStyle? controllerTextStyleFormField;
 
   @override
   LocationAutocompleteFieldState createState() =>
@@ -210,7 +212,7 @@ class LocationAutocompleteFieldState extends State<PlacesAutocompleteField> {
         ? Text(
             controller.text,
             softWrap: true,
-            style: widget.textStyleFormField ??
+            style: widget.controllerTextStyleFormField ??
                 const TextStyle(color: Colors.black38),
           )
         : Text(
@@ -225,7 +227,8 @@ class LocationAutocompleteFieldState extends State<PlacesAutocompleteField> {
         const SizedBox(
           width: 16.0,
         ),
-        Expanded(
+        SizedBox(
+          width: 200,
           child: text,
         ),
         widget.trailing ?? const SizedBox(),
