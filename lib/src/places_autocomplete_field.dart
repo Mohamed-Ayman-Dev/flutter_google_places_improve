@@ -209,12 +209,14 @@ class LocationAutocompleteFieldState extends State<PlacesAutocompleteField> {
     final text = controller.text.isNotEmpty
         ? Text(
             controller.text,
+            maxLines: 1,
             softWrap: true,
             style: widget.textStyleFormField ??
                 const TextStyle(color: Colors.black38),
           )
         : Text(
             widget.hint,
+            maxLines: 1,
             style: widget.textStyleFormField ??
                 const TextStyle(color: Colors.black38),
           );
