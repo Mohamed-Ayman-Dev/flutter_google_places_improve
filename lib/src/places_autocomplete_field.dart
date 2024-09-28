@@ -207,26 +207,16 @@ class LocationAutocompleteFieldState extends State<PlacesAutocompleteField> {
     final TextEditingController controller = _effectiveController!;
 
     final text = controller.text.isNotEmpty
-        ? SizedBox(
-            width: 200,
-            child: Text(
-              controller.text,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              softWrap: true,
-              style: widget.textStyleFormField ??
-                  const TextStyle(color: Colors.black38),
-            ),
+        ? Text(
+            controller.text,
+            softWrap: false,
+            style: widget.textStyleFormField ??
+                const TextStyle(color: Colors.black38),
           )
-        : SizedBox(
-            width: 200,
-            child: Text(
-              widget.hint,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
-              style: widget.textStyleFormField ??
-                  const TextStyle(color: Colors.black38),
-            ),
+        : Text(
+            widget.hint,
+            style: widget.textStyleFormField ??
+                const TextStyle(color: Colors.black38),
           );
 
     Widget child = Row(
