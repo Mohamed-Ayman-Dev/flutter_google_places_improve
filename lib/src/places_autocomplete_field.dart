@@ -227,8 +227,7 @@ class LocationAutocompleteFieldState extends State<PlacesAutocompleteField> {
         const SizedBox(
           width: 16.0,
         ),
-        SizedBox(
-          width: 200,
+        Expanded(
           child: text,
         ),
         widget.trailing ?? const SizedBox(),
