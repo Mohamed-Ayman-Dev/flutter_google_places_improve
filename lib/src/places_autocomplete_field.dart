@@ -67,10 +67,10 @@ class PlacesAutocompleteField extends StatefulWidget {
   final TextEditingController? controller;
 
   /// Icon shown inside the field left to the text.
-  final Icon? leading;
+  final Widget? leading;
 
   /// Icon shown inside the field right to the text.
-  final Icon? trailing;
+  final Widget? trailing;
 
   /// Callback when [trailing] is tapped on.
   final VoidCallback? trailingOnTap;
@@ -228,18 +228,19 @@ class LocationAutocompleteFieldState extends State<PlacesAutocompleteField> {
         Expanded(
           child: text,
         ),
-        if (widget.trailing != null)
-          GestureDetector(
-            onTap: widget.trailingOnTap,
-            child: widget.trailingOnTap != null
-                ? widget.trailing
-                : Icon(
-                    widget.trailing!.icon,
-                    color: Colors.grey,
-                  ),
-          )
-        else
-          const SizedBox()
+        widget.trailing ?? const SizedBox(),
+        // if (widget.trailing != null)
+        //   GestureDetector(
+        //     onTap: widget.trailingOnTap,
+        //     child: widget.trailingOnTap != null
+        //         ? widget.trailing
+        //         : Icon(
+        //             widget.trailing!.icon,
+        //             color: Colors.grey,
+        //           ),
+        //   )
+        // else
+        //   const SizedBox()
       ],
     );
 
